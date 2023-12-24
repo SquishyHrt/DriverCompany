@@ -2,7 +2,11 @@
 
 ## Overview
 
-DriverCompany is a Java application designed to simulate the management of a fleet of trucks. The application utilizes a SQL database with Hibernate as a library to facilitate the storage and retrieval of objects. The user interface is developed using JavaFX.
+DriverCompany is a Java application designed to simulate the management of a
+fleet of trucks. This project was developed as part of a programming class during
+my Erasmus semester at Vilnius Tech. The application utilizes a SQL database
+with Hibernate as a library to facilitate the storage and retrieval of objects.
+The user interface is developed using JavaFX.
 
 ## Features
 
