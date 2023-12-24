@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="480.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxControllers.ManagerPage">
+    <children>
+        <TabPane fx:id="tabPane" layoutX="9.0" layoutY="37.0" prefHeight="355.0" prefWidth="586.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="37.0">
+            <tabs>
+                <Tab fx:id="userManagementTab" text="User Management">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox alignment="CENTER" layoutX="1.0" layoutY="5.0" prefHeight="390.0" prefWidth="700.0" spacing="30.0" AnchorPane.bottomAnchor="8.5" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                           <children>
+                              <TableView fx:id="managerTableView" prefHeight="160.0" prefWidth="600.0">
+                                <columns>
+                                  <TableColumn fx:id="managerTableLogin" prefWidth="136.0" text="Login" />
+                                    <TableColumn fx:id="managerTableName" prefWidth="78.0" text="Name" />
+                                  <TableColumn fx:id="managerTableSurname" prefWidth="75.0" text="Surname" />
+                                    <TableColumn fx:id="managerTableBirthDate" prefWidth="75.0" text="BirthDate" />
+                                    <TableColumn fx:id="managerTablePhoneNum" prefWidth="75.0" text="PhoneNumber" />
+                                    <TableColumn fx:id="managerTableEmail" prefWidth="75.0" text="Email" />
+                                    <TableColumn fx:id="managerTableIsAdmin" prefWidth="75.0" text="Is Admin" />
+                                </columns>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                              <TableView fx:id="driverTableView" prefHeight="160.0" prefWidth="600.0">
+                                 <columns>
+                                    <TableColumn fx:id="driverTableLogin" prefWidth="63.0" text="Login" />
+                                    <TableColumn fx:id="driverTableName" prefWidth="76.0" text="Name" />
+                                    <TableColumn fx:id="driverTableSurname" text="Surname" />
+                                    <TableColumn fx:id="driverTableBirthDate" prefWidth="77.0" text="BirthDate" />
+                                    <TableColumn fx:id="driverTablePhoneNum" prefWidth="103.0" text="PhoneNumber" />
+                                    <TableColumn fx:id="driverTableMedDate" prefWidth="94.0" text="Medical Certificate Date" />
+                                    <TableColumn fx:id="driverTableMedNum" minWidth="0.0" prefWidth="93.0" text="Medical Certificate Number" />
+                                    <TableColumn fx:id="driverTableLicense" prefWidth="74.0" text="Driver license" />
+                                 </columns>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                           </children>
+                        </VBox>
+                     </children></AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="cargoManagementTab" onClosed="#closedCargoManagementTab" onSelectionChanged="#closedCargoManagementTab" text="Cargo Management">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <Label layoutX="311.0" layoutY="29.0" text="Company Cargo">
+                                    <font>
+                                        <Font size="16.0" />
+                                    </font></Label>
+                                <Label layoutX="543.0" layoutY="29.0" text="Destinations">
+                                    <font>
+                                        <Font size="16.0" />
+                                    </font></Label>
+                                <HBox layoutX="15.0" layoutY="57.0" prefHeight="271.0" prefWidth="681.0" spacing="20.0">
+                                    <children>
+                                        <VBox prefHeight="271.0" prefWidth="231.0" spacing="18.0">
+                                            <children>
+                                                <TextField fx:id="titleCargoField" prefWidth="147.0" promptText="Title" />
+                                                <TextField fx:id="weightCargoField" promptText="Weight" />
+                                                <ComboBox fx:id="comboBoxCargoType" prefHeight="26.0" prefWidth="234.0" promptText="Cargo Type" />
+                                                <TextField fx:id="descriptionCargoField" promptText="Description" />
+                                                <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
+                                                    <children>
+                                                        <Label text="Destination: ">
+                                                            <font>
+                                                                <Font size="16.0" />
+                                                            </font></Label>
+                                                        <Label fx:id="currentDestinationCargoLabel" text="DestinationvValue" />
+                                                    </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
+                                                    <children>
+                                                        <Label text="Creation Date:">
+                                                            <font>
+                                                                <Font size="16.0" />
+                                                            </font></Label>
+                                                        <Label fx:id="creationDateLabel" text="CreationDateValue" />
+                                                    </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
+                                                    <children>
+                                                        <Label text="UpdateDate:">
+                                                            <font>
+                                                                <Font size="16.0" />
+                                                            </font></Label>
+                                                        <Label fx:id="updateDateLabel" text="UpdateDateValue" />
+                                                    </children>
+                                                </HBox>
+                                            </children>
+                                        </VBox>
+                                        <ListView fx:id="cargoManagementCargoListView" onMouseClicked="#mouseClickedCargo" prefHeight="200.0" prefWidth="200.0" />
+                                        <ListView fx:id="cargoManagementDestinationListView" prefHeight="200.0" prefWidth="200.0" />
+                                    </children>
+                                </HBox>
+                                <HBox alignment="CENTER" layoutX="127.0" layoutY="338.0" prefHeight="45.0" prefWidth="478.0" spacing="15.0">
+                                    <children>
+                                        <Button fx:id="addCargoButton" mnemonicParsing="false" onAction="#createCargo" text="Add" />
+                                        <Button fx:id="deleteCargoButton" mnemonicParsing="false" onAction="#deleteSelectedCargo" text="Delete" />
+                                        <Button fx:id="updateCargoButton" mnemonicParsing="false" onAction="#updateCargo" text="Update" />
+                                        <Button fx:id="cargoManagementAssignDestinationButton" mnemonicParsing="false" onAction="#assignCargoDestination" text="Assign Destination" />
+                                        <Button fx:id="cargoManagementUnassignDestinationButton" mnemonicParsing="false" onAction="#removeCargoDestination" text="Unassign Destination" />
+                                    </children>
+                                </HBox>
+                                <Button fx:id="helpCargoButton" layoutX="649.0" layoutY="377.0" mnemonicParsing="false" onAction="#showHelpCargo" prefHeight="26.0" prefWidth="47.0" text="Help" />
+                            </children></AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="truckManagementTab" onClosed="#closedTruckManagementTab" onSelectionChanged="#closedTruckManagementTab" text="Truck Management">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TextField fx:id="makeField" layoutX="37.0" layoutY="58.0" promptText="Enter make" />
+                                <TextField fx:id="modelField" layoutX="37.0" layoutY="106.0" promptText="Enter model" />
+                                <TextField fx:id="yearField" layoutX="37.0" layoutY="155.0" promptText="Enter year" />
+                                <TextField fx:id="odometerField" layoutX="330.0" layoutY="59.0" prefHeight="26.0" prefWidth="60.0" promptText="km" />
+                                <TextField fx:id="truckCapacityField" layoutX="330.0" layoutY="107.0" prefHeight="26.0" prefWidth="60.0" promptText="litres" />
+                                <ComboBox fx:id="tyreTypeField" layoutX="240.0" layoutY="155.0" prefWidth="150.0" promptText="Tyre type" />
+                                <ListView fx:id="listViewTruck" layoutX="440.0" layoutY="58.0" onMouseClicked="#mouseClickedTrucks" prefHeight="329.0" prefWidth="248.0" />
+                                <Label layoutX="484.0" layoutY="26.0" text="Company owned trucks">
+                                    <font>
+                                        <Font size="16.0" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="250.0" layoutY="64.0" text="Odometer" />
+                                <Label layoutX="237.0" layoutY="111.0" text="Truck capacity" />
+                                <Button fx:id="addTruckButton" layoutX="38.0" layoutY="223.0" mnemonicParsing="false" onAction="#createTruck" prefHeight="26.0" prefWidth="70.0" text="Add" />
+                                <Button fx:id="updateTruckButton" layoutX="182.0" layoutY="223.0" mnemonicParsing="false" onAction="#updateSelectedTruck" prefHeight="26.0" prefWidth="70.0" text="Update" />
+                                <Button fx:id="deleteTruckButton" layoutX="320.0" layoutY="224.0" mnemonicParsing="false" onAction="#deleteSelectedTruck" prefHeight="26.0" prefWidth="70.0" text="Delete" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="destinationManagementTab" onClosed="#closedDestinationManagementTab" onSelectionChanged="#closedDestinationManagementTab" text="Destination Management">
+                    <content>
+                        <AnchorPane fx:id="tetslUI" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <VBox alignment="CENTER" layoutX="7.0" layoutY="17.0" prefHeight="371.0" prefWidth="295.0" spacing="15.0" AnchorPane.bottomAnchor="15.5" AnchorPane.leftAnchor="7.0" AnchorPane.topAnchor="17.0">
+                                    <children>
+                              <HBox prefHeight="13.0" prefWidth="295.0" spacing="12.0">
+                                 <children>
+                                              <TextField fx:id="destinationStartCityField" promptText="Start city" />
+                                    <DatePicker fx:id="destinationManagementDepDate" promptText="Departure" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="28.0" prefWidth="295.0" spacing="12.0">
+                                 <children>
+                                              <TextField fx:id="destinationEndCityField" promptText="End city" />
+                                    <DatePicker fx:id="destinationManagementArriDate" promptText="Arrival" />
+                                 </children>
+                              </HBox>
+                                        <HBox alignment="CENTER" prefHeight="24.0" prefWidth="295.0" spacing="8.0">
+                                            <children>
+                                    <Button fx:id="destinationChoseTruckButton" mnemonicParsing="false" onAction="#destChoseTruck" text="Chose Truck" />
+                                                <Button fx:id="destinationChoseManagerButton" mnemonicParsing="false" onAction="#destChoseManager" text="Chose Manager" />
+                                                <Button fx:id="destinationChoseDriverButton" mnemonicParsing="false" onAction="#destChoseDriver" text="Chose Driver" />
+                                            </children>
+                                            <padding>
+                                                <Insets bottom="10.0" />
+                                            </padding>
+                                            <VBox.margin>
+                                                <Insets bottom="-15.0" />
+                                            </VBox.margin>
+                                        </HBox>
+                                        <HBox alignment="BASELINE_LEFT" prefHeight="8.0" prefWidth="211.0" spacing="5.0">
+                                            <children>
+                                                <Label text="Truck: ">
+                                                    <font>
+                                                        <Font size="16.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label fx:id="destinationSelectedTruckLabel" text="No driver selected" />
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="BASELINE_LEFT" prefHeight="0.0" prefWidth="211.0" spacing="5.0">
+                                            <children>
+                                                <Label text="Manager: ">
+                                                    <font>
+                                                        <Font size="16.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label fx:id="destinationSelectedManagerLabel" text="No manager selected" />
+                                            </children>
+                                            <VBox.margin>
+                                                <Insets top="-10.0" />
+                                            </VBox.margin>
+                                        </HBox>
+                              <HBox alignment="BASELINE_LEFT" prefHeight="0.0" prefWidth="211.0" spacing="5.0">
+                                 <children>
+                                    <Label text="Driver: ">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="destinationSelectedDriverLabel" text="No driver selected" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="-10.0" />
+                                 </VBox.margin>
+                              </HBox>
+                                        <ListView fx:id="destinationCheckpointListView" prefHeight="94.0" prefWidth="211.0" />
+                                        <HBox alignment="CENTER" prefHeight="37.0" prefWidth="211.0" spacing="12.0">
+                                            <children>
+                                                <Button fx:id="destinationAddCheckButton" mnemonicParsing="false" onAction="#addCheckpointPressed" text="Add Checkpoint" />
+                                                <Button fx:id="destinationDeleteCheckButton" mnemonicParsing="false" onAction="#deleteCheckpointPressed" text="Delete" />
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </VBox>
+                                <Button fx:id="helpDestinationButton" layoutX="661.0" layoutY="377.0" mnemonicParsing="false" onAction="#showDestinationHelp" text="Help" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="377.0" />
+                        <VBox layoutX="329.0" layoutY="19.0" prefHeight="363.0" prefWidth="370.0" spacing="20.0" AnchorPane.bottomAnchor="22.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="19.0">
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="41.0" prefWidth="350.0" spacing="50.0">
+                                 <children>
+                                            <Label text="Destination List">
+                                                <font>
+                                                    <Font size="16.0" />
+                                                </font>
+                                            </Label>
+                                    <ComboBox fx:id="destinationComboBox" onAction="#onSortDestinationClicked" prefHeight="26.0" prefWidth="90.0" promptText="Sort by" />
+                                 </children>
+                              </HBox>
+                                      <ListView fx:id="destinationListView" onMouseClicked="#destinationClickListView" prefHeight="246.0" prefWidth="390.0" />
+                                      <HBox alignment="CENTER" prefHeight="26.0" prefWidth="388.0" spacing="12.0">
+                                          <children>
+                                              <Button fx:id="destinationAddDestinationButton" mnemonicParsing="false" onAction="#createDestination" text="Add Destination" />
+                                              <Button fx:id="destinationUpdateButton" mnemonicParsing="false" onAction="#updateDestination" text="Update Destination" />
+                                              <Button fx:id="destinationDeleteDestButton" mnemonicParsing="false" onAction="#deleteDestination" text="Delete Destination" />
+                                          </children>
+                                      </HBox>
+                           </children>
+                        </VBox>
+                            </children></AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+        <Button fx:id="logOutButton" layoutX="11.0" layoutY="6.0" mnemonicParsing="false" onAction="#logOut" text="Log out" />
+        <Label layoutX="550.0" layoutY="10.0" text="Welcome: ">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+        <Label fx:id="userNameLabel" layoutX="629.0" layoutY="10.0" prefHeight="17.0" prefWidth="72.0" text="Username">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Button fx:id="forumButton" layoutX="79.0" layoutY="6.0" mnemonicParsing="false" onAction="#openForum" text="Forum" />
+    </children>
+</AnchorPane>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="480.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxControllers.ForumPage">
+   <children>
+      <Button fx:id="backButton" layoutX="549.0" layoutY="6.0" mnemonicParsing="false" onAction="#openBackMenu" text="Back" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+      <HBox layoutX="14.0" layoutY="39.0" prefHeight="423.0" prefWidth="690.0" spacing="20.0" AnchorPane.bottomAnchor="17.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="40.0">
+         <children>
+            <VBox prefHeight="395.0" prefWidth="268.0" spacing="20.0">
+               <children>
+                  <TextField fx:id="createNewPostTextField" prefHeight="31.0" prefWidth="268.0" promptText="New Post Name" />
+                  <ListView fx:id="listViewForum" onMouseClicked="#onClickListViewForum" prefHeight="352.0" prefWidth="268.0" />
+                  <HBox alignment="CENTER" prefHeight="63.0" prefWidth="268.0" spacing="15.0">
+                     <children>
+                        <Button fx:id="createNewPostButton" mnemonicParsing="false" onAction="#createNewPost" text="Create new Post" />
+                        <Button fx:id="forumDeletePostButton" mnemonicParsing="false" onAction="#deletePost" text="Delete Post" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox prefHeight="431.0" prefWidth="401.0" spacing="20.0">
+               <children>
+                  <TreeView fx:id="treeViewForum" onMouseClicked="#mouseClickedTreeView" prefHeight="258.0" prefWidth="401.0" />
+                  <TextArea fx:id="textAreaForum" prefHeight="125.0" prefWidth="401.0" />
+                  <HBox alignment="CENTER" prefHeight="52.0" prefWidth="401.0" spacing="15.0">
+                     <children>
+                        <Button fx:id="addCommentButton" mnemonicParsing="false" onAction="#addComment" text="Add Comment" />
+                        <Button fx:id="forumDeleteCommentButton" mnemonicParsing="false" onAction="#deleteComment" text="Delete Comment" />
+                        <Button fx:id="forumUpdateCommentButton" mnemonicParsing="false" onAction="#updateComment" text="Update Comment" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <Label layoutX="128.0" layoutY="11.0" text="Posts" />
+   </children>
+</AnchorPane>
